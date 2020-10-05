@@ -77,5 +77,13 @@ const getSurroundingBlocks = (blockCoordinates) => {
     surroundingBlocks.push(row + '' + (column + 1));
     surroundingBlocks.push(row + '' + (column - 1));
     
+    for (let i = 0; i < surroundingBlocks.length; i++) {
+        if (surroundingBlocks[i].length > 2) {
+            surroundingBlocks.splice(i, 1);
+            i--;
+        }
+    }
+
+    return surroundingBlocks;
 
 }
