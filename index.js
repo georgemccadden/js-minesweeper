@@ -70,8 +70,13 @@ const getSurroundingMines = (board, height, width) {
 
 const isMineThere = (board, row, column) {
     let block = board[row + ',' + column];
-    let surroundingMines = 0;
+    let mine = 0;
 
+    if (typeof block !== 'undefined') {
+        mine = block.mine ? 1 : 0;
+    }
+
+    return mine;
 }
 
 const getSurroundingBlocks = (blockCoordinates) => {
