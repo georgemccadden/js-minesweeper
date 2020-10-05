@@ -4,7 +4,7 @@
 
 function Block(row, column, mine, surroundingMines) {
     return {
-        coordinates: row + '' + column,
+        blockCoordinates: row + '' + column,
         row: row,
         column: column,
         mine: mine,
@@ -12,12 +12,24 @@ function Block(row, column, mine, surroundingMines) {
     }
 }
 
-function MinesweeperBoard(height, width, mineCount) {
+function MinesweeperBoard(height, width, howManyMines) {
     let board = {};
 
     for (let row = 0; row < width; row++) {
         for (let column = 0; column < height; column++) {
             board[row + '' + column] = Block(row, column, false, 0);
         }
+    }
+}
+
+function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function createMinesRandomly(board, howManyMines) {
+    let mineCoordinates = [];
+    
+    for (let i = 0; i < howManyMines; i++) {
+        
     }
 }
