@@ -4,7 +4,7 @@
 
 const Block = (row, column, mine, surroundingMines) => {
     return {
-        blockCoordinates: row + '' + column,
+        blockCoordinates: row + ',' + column,
         row: row,
         column: column,
         mine: mine,
@@ -17,7 +17,7 @@ const MinesweeperBoard = (height, width, howManyMines) => {
 
     for (let row = 0; row < width; row++) {
         for (let column = 0; column < height; column++) {
-            board[row + '' + column] = Block(row, column, false, 0);
+            board[row + ',' + column] = Block(row, column, false, 0);
         }
     }
 }
@@ -32,12 +32,12 @@ const createMinesRandomly = (board, howManyMines) => {
     for (let i = 0; i < howManyMines; i++) {
         let rowCoordinate = getRandomInteger(0, width);
         let columnCoordinate = getRandomInteger(0, height);
-        let block = rowCoordinate + '' + columnCoordinate;
+        let block = rowCoordinate + ',' + columnCoordinate;
 
         while (mineCoordinates.includes(block)) { // Still O(n^2) but can be optimized
             rowCoordinate = getRandomInteger(0, width);
             columnCoordinate = getRandomInteger(0, height);
-            block = rowCoordinate + '' + columnCoordinate;
+            block = rowCoordinate + ',' + columnCoordinate;
         }
 
         mineCoordinates.push(block);
@@ -53,7 +53,7 @@ const getSurroundingMines = (board, height, width) {
   
   for (let row = 0; row < width; row++) {
       for (let column = 0; column < height; column++) {
-          let blockCoordinates = row + '' + column;
+          let blockCoordinates = row + ',' + column;
           block = board[blockCoordinates];
 
           if (!block.mine) {
@@ -68,19 +68,25 @@ const getSurroundingMines = (board, height, width) {
   }
 }
 
+const isMineThere = (board, row, column) {
+    let block = board[row + ',' + column];
+    let surroundingMines = 0;
+
+}
+
 const getSurroundingBlocks = (blockCoordinates) => {
     let row = parseInt(rowCoordinate[0]);
     let column = parseInt(columnCoordinate[1]);
     let surroundingBlocks = [];
 
-    surroundingBlocks.push((row + 1) + '' + (column + 1));
-    surroundingBlocks.push((row + 1) + '' + (column - 1));
-    surroundingBlocks.push((row + 1) + '' + (column));
-    surroundingBlocks.push((row - 1) + '' + (column - 1));
-    surroundingBlocks.push((row - 1) + '' + (column + 1));
-    surroundingBlocks.push((row - 1) + '' + (column));
-    surroundingBlocks.push(row + '' + (column + 1));
-    surroundingBlocks.push(row + '' + (column - 1));
+    surroundingBlocks.push((row + 1) + ',' + (column + 1));
+    surroundingBlocks.push((row + 1) + ',' + (column - 1));
+    surroundingBlocks.push((row + 1) + ',' + (column));
+    surroundingBlocks.push((row - 1) + ',' + (column - 1));
+    surroundingBlocks.push((row - 1) + ',' + (column + 1));
+    surroundingBlocks.push((row - 1) + ',' + (column));
+    surroundingBlocks.push(row + ',' + (column + 1));
+    surroundingBlocks.push(row + ',' + (column - 1));
     
     for (let i = 0; i < surroundingBlocks.length; i++) {
         if (surroundingBlocks[i].length > 2) {
