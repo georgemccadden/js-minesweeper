@@ -47,7 +47,7 @@ const createMinesRandomly = (board, howManyMines) => {
     return board;
 }
 
-const getSurroundingMines = (board, height, width) {
+const getSurroundingMines = (board, height, width) => {
   let block;
   let surroundingMines = 0;
   
