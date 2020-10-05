@@ -2,7 +2,7 @@
 
 // Building the game logic for the game Minesweeper. The board is a rectangle and its length and height can be determined by the player. The mines are created at random.
 
-function Block(row, column, mine, surroundingMines) {
+const Block = (row, column, mine, surroundingMines) => {
     return {
         blockCoordinates: row + '' + column,
         row: row,
@@ -12,7 +12,7 @@ function Block(row, column, mine, surroundingMines) {
     }
 }
 
-function MinesweeperBoard(height, width, howManyMines) {
+const MinesweeperBoard = (height, width, howManyMines) => {
     let board = {};
 
     for (let row = 0; row < width; row++) {
@@ -22,11 +22,11 @@ function MinesweeperBoard(height, width, howManyMines) {
     }
 }
 
-function getRandomInteger(min, max) {
+const getRandomInteger = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function createMinesRandomly(board, howManyMines) {
+const createMinesRandomly = (board, howManyMines) => {
     let mineCoordinates = [];
     
     for (let i = 0; i < howManyMines; i++) {
@@ -46,3 +46,7 @@ function createMinesRandomly(board, howManyMines) {
 
     return board;
 }
+
+const getSurroundingMines = (board, height, length) {
+    
+} 
