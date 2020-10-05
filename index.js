@@ -57,7 +57,12 @@ const getSurroundingMines = (board, height, width) {
           block = board[blockCoordinates];
 
           if (!block.mine) {
+              let surroundingBlocks = getSurroundingBlocks(blockCoordinates);
+              surroundingMines = 0;
               
+              for (let i = 0; i < surroundingBlocks.length; i++) {
+                  surroundingMines += // check if there is a mine
+              }
           }
       }
   }
@@ -85,5 +90,5 @@ const getSurroundingBlocks = (blockCoordinates) => {
     }
 
     return surroundingBlocks;
-
 }
+
