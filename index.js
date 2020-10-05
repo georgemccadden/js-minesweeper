@@ -30,6 +30,10 @@ function createMinesRandomly(board, howManyMines) {
     let mineCoordinates = [];
     
     for (let i = 0; i < howManyMines; i++) {
+        let rowCoordinate = getRandomInteger(0, width);
+        let columnCoordinate = getRandomInteger(0, height);
+        let block = rowCoordinate + '' + columnCoordinate;
+
         
     }
 }
