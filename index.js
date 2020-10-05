@@ -54,6 +54,11 @@ const getSurroundingMines = (board, height, width) {
   for (let row = 0; row < width; row++) {
       for (let column = 0; column < height; column++) {
           let blockCoordinates = row + '' + column;
+          block = board[blockCoordinates];
+
+          if (!block.mine) {
+              
+          }
       }
   }
 } 
