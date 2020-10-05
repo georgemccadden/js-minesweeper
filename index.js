@@ -61,14 +61,18 @@ const getSurroundingMines = (board, height, width) {
               surroundingMines = 0;
               
               for (let i = 0; i < surroundingBlocks.length; i++) {
-                  surroundingMines += // check if there is a mine
+                  surroundingMines += isMineThere(board, surroundingBlocks[i]);
               }
+
+              block.surroundingMines = surroundingMines;
           }
       }
   }
+
+  return board;
 }
 
-const isMineThere = (board, row, column) {
+const isMineThere = (board, row, column) => {
     let block = board[row + ',' + column];
     let mine = 0;
 
