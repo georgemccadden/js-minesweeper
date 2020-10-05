@@ -34,6 +34,8 @@ function createMinesRandomly(board, howManyMines) {
         let columnCoordinate = getRandomInteger(0, height);
         let block = rowCoordinate + '' + columnCoordinate;
 
-        
+        while (mineCoordinates.includes(block)) { // Still O(n^2) but can be optimized
+
+        }
     }
 }
