@@ -37,7 +37,12 @@ function createMinesRandomly(board, howManyMines) {
         while (mineCoordinates.includes(block)) { // Still O(n^2) but can be optimized
             rowCoordinate = getRandomInteger(0, width);
             columnCoordinate = getRandomInteger(0, height);
-
+            block = rowCoordinate + '' + columnCoordinate;
         }
+
+        mineCoordinates.push(block);
+        board[block].mine = true;
     }
+
+    return board;
 }
