@@ -65,4 +65,17 @@ const getSurroundingMines = (board, height, width) {
 
 const getSurroundingBlocks = (blockCoordinates) => {
     let row = parseInt(rowCoordinate[0]);
+    let column = parseInt(columnCoordinate[1]);
+    let surroundingBlocks = [];
+
+    surroundingBlocks.push((row + 1) + '' + (column + 1));
+    surroundingBlocks.push((row + 1) + '' + (column - 1));
+    surroundingBlocks.push((row + 1) + '' + (column));
+    surroundingBlocks.push((row - 1) + '' + (column - 1));
+    surroundingBlocks.push((row - 1) + '' + (column + 1));
+    surroundingBlocks.push((row - 1) + '' + (column));
+    surroundingBlocks.push(row + '' + (column + 1));
+    surroundingBlocks.push(row + '' + (column - 1));
+    
+
 }
