@@ -64,5 +64,5 @@ const getSurroundingMines = (board, height, width) {
 }
 
 const getSurroundingBlocks = (blockCoordinates) => {
-    
+    let row = parseInt(rowCoordinate[0]);
 }
